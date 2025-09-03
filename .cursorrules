@@ -1,0 +1,99 @@
+# .cursorrules
+
+# Base Unity C# rules—imported/adapted from Awesome Cursor Rules
+
+# Unity Client Rules
+- files: "Unity Project/Assets/**/*.cs"
+  rules:
+    - Follow PascalCase for public APIs, camelCase for private fields.
+    - Place gameplay logic in `Scripts/Combat` or `Scripts/Systems`.
+    - Scriptables go under `Assets/ScriptableObjects`.
+    - Use [SerializeField] private fields for inspector parameters.
+    - Keep methods concise (< 30 lines).
+    - Use coroutines (IEnumerator) when implementing timed effects.
+    - For SignalR integration, use `ClientGameManager` or `NetworkManager`.
+
+# Backend Rules (ASP.NET Core)
+- files: "Backend/**/*.cs"
+  rules:
+    - Controllers for REST, Hubs for SignalR.
+    - Use dependency injection; avoid new-ing services.
+    - Separate DTOs from EF models.
+    - Logging via Microsoft.Extensions.Logging.
+    - Validate incoming DTOs using FluentValidation or Data Annotations.
+
+# Architectural Prompts
+- When generating new code:
+    * Always specify target folder (Unity vs Backend).
+    * Indicate required scene or prefab setup for Unity.
+    * For backend, mention where to register in DI container.
+
+# Test Rules
+- files: "**/Tests/**/*.cs"
+  rules:
+    - Use Unity Test Framework for client; xUnit/NUnit for backend.
+    - Name tests `MethodName_Should_DoX_When_Y`.
+
+# Core Development Rules
+- Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.
+- Make changes file by file and give users a chance to spot mistakes.
+- Never use apologies in responses.
+- Avoid giving feedback about understanding in comments or documentation.
+- Don't suggest whitespace changes.
+- Don't summarize changes made.
+- Don't invent changes other than what's explicitly requested.
+- Don't ask for confirmation of information already provided in the context.
+- Preserve existing code and functionalities. Pay attention to preserving existing structures.
+- Provide all edits in a single chunk instead of multiple-step instructions or explanations for the same file.
+- Don't ask users to verify implementations that are visible in the provided context.
+- Don't suggest updates or changes to files when there are no actual modifications needed.
+- Always provide links to real files, not context generated files.
+- Don't show or discuss current implementation unless specifically requested.
+- Remember to check context generated files for current file contents and implementations.
+- Use explicit, descriptive variable names over short, ambiguous ones to enhance code readability.
+- Follow consistent coding style in the project for consistency.
+- Prioritize code performance when suggesting changes.
+- Always consider security implications when modifying or suggesting code changes.
+- Suggest or include appropriate unit tests for new or modified code.
+- Implement robust error handling and logging where necessary.
+- Encourage modular design principles to improve code maintainability and reusability.
+- Ensure suggested changes are compatible with project's specified language or framework versions.
+- Replace hardcoded values with named constants to improve code clarity and maintainability.
+- Consider and handle potential edge cases when implementing logic.
+- Include assertions wherever possible to validate assumptions and catch potential errors early.
+
+# Commit Message Rules
+- Use Conventional Commit Messages specification
+- Structure: `<type>[optional scope]: <description>`
+- Types: feat, fix, docs, style, refactor, perf, test, chore, build, ci
+- Include scope when relevant (e.g., feat(parser): add array parsing)
+- Use BREAKING CHANGE footer for breaking API changes
+- Keep description concise and clear
+
+# Documentation Rules
+- Create clear, step-by-step instructions for non-technical users
+- Use action-oriented titles (e.g., "How To Log In")
+- Include prerequisites, numbered steps, expected results, and troubleshooting
+- Avoid technical jargon and focus on user actions
+- Reference UI elements as they appear to users
+- Include platform compatibility notes when relevant
+
+# PR Template Rules
+- Create standardized PR templates in Markdown format
+- Include sections for purpose, implementation details, testing, and impacts
+- Provide review checklists for common criteria
+- Link to related issues and tickets
+- Consider platform-specific features (GitHub, GitLab, Azure DevOps)
+- Focus on cross-team understanding and efficient review processes
+
+# Project-Specific Rules
+- files: "**/*.cs"
+  rules:
+    - Follow existing project architecture and patterns
+    - Maintain consistency with current codebase organization
+    - Use established naming conventions and folder structures
+    - Preserve existing functionality when making modifications
+    - Consider performance implications for game development
+    - Implement proper error handling for multiplayer scenarios
+    - Use appropriate design patterns (Singleton for managers, MVVM for UI)
+    - Follow Unity and ASP.NET Core best practices
